@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Sign Up</title>
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #fafafa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        width: 350px;
+        background: white;
+        border: 1px solid #dbdbdb;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .logo {
+        font-size: 35px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0;
+        border: 1px solid #dbdbdb;
+        border-radius: 4px;
+        background: #fafafa;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: none;
+        background: #0095f6;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #0073c6;
+      }
+
+      .small-text {
+        font-size: 12px;
+        color: gray;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="logo">Instagram</div>
+
+      <form action="/saveform" method="POST" enctype="multipart/form-data">
+        <!-- Username -->
+
+        <input
+          type="text"
+          id="userName"
+          name="userName"
+          placeholder="Username"
+          required
+          minlength="3"
+          maxlength="20"
+        />
+
+        <!-- Phone -->
+
+        <input
+          type="tel"
+          id="userPhone"
+          name="userPhone"
+          placeholder="Phone Number"
+          required
+          pattern="[0-9]{10}"
+          title="Enter 10 digit phone number"
+        />
+
+        <!-- Email -->
+
+        <input
+          type="email"
+          id="userEmail"
+          name="userEmail"
+          placeholder="Email Address"
+          required
+        />
+
+        <!-- Password -->
+
+        <input
+          type="password"
+          id="userPassword"
+          name="userPassword"
+          placeholder="Password"
+          required
+          minlength="6"
+        />
+
+        <!-- Profile Image -->
+
+        <input
+          type="file"
+          id="userProfile"
+          name="userProfile"
+          accept="image/*"
+          required
+        />
+
+        <!-- createdAt -->
+
+        <input type="hidden" id="createdAt" name="createdAt" />
+
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <p class="small-text">
+        Sign up to see photos and videos from your friends.
+      </p>
+    </div>
+
+    <script>
+      // auto set createdAt date
+      document.getElementById("createdAt").value = new Date().toISOString();
+    </script>
+  </body>
+</html>
